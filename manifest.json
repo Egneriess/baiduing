@@ -1,0 +1,14 @@
+{
+  "name": "baiduing",
+  "version": "1.0",
+  "description": "随时百度插件",
+  "manifest_version": 3,
+  "icons": {
+    "64": "assets/icon.png"
+  },
+  "action": {
+    "default_icon": "assets/icon.png",
+    "default_popup": "popup.html",
+    "default_title": "随时百度插件"
+  }
+}
