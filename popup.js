@@ -1,21 +1,42 @@
 window.onload = function () {
-    var btn = document.getElementById("button");
+    const btn = document.getElementById("button");
 
     btn.onclick = function () {
-        var text = document.getElementById("text").value;
-        if (text !== '') {
-            var url = "https://www.baidu.com/s?wd=" + text;
-            window.open(url, "_blank");
-        }
+        openURL();
     }
     document.onkeydown = function (ev) {
-        var event = ev || event
-        if (event.keyCode === 13) {
-            var text = document.getElementById("text").value;
-            if (text !== '') {
-                var url = "https://www.baidu.com/s?wd=" + text;
-                window.open(url, "_blank");
-            }
+        const event = ev || event;
+        if (event.key === "Enter") {
+            openURL();
         }
+    }
+}
+
+function getRadioButtonChecked(tagNameAttr) {
+    const radio = document.getElementsByName(tagNameAttr);
+    for (let i = 0; i < radio.length; i++) {
+        if (radio[i].checked) {
+            return radio[i].value;
+        }
+    }
+}
+
+function openURL() {
+    const radio = getRadioButtonChecked("search");
+    const text = document.getElementById("text").value;
+    if (text !== '') {
+        let url;
+        switch (radio) {
+            case "百度":
+                url = "https://www.baidu.com/s?wd=" + text;
+                break
+            case "百科":
+                url = "https://baike.baidu.com/search/none?word=" + text;
+                break
+            case "图片":
+                url = "https://image.baidu.com/search/index?tn=baiduimage&word=nihao" + text;
+                break
+        }
+        window.open(url, "_blank");
     }
 }

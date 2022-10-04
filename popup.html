@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <script src="popup.js"></script>
 </head>
 <body>
-<input type="text" id="text" autofocus>
-<input type="button" id="button" value="搜索">
+    <form>
+        <label for="text">内容: </label><input type="text" id="text" autofocus>
+        <input type="radio" name="search" id="baidu" value="百度" checked><label for="baidu">百度</label>
+        <input type="radio" name="search" id="baike" value="百科"><label for="baike">百科</label>
+        <input type="radio" name="search" id="image" value="图片"><label for="image">图片</label>
+        <input type="button" id="button" value="搜索">
+    </form>
 </body>
 </html>
